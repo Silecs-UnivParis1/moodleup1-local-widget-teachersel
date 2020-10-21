@@ -212,7 +212,16 @@
                 }
                 var labeldetails = '';
                 if (details) {
-                    labeldetails = ' (' + details + ') ';
+					 if ($('#selectedrolelabel') !== undefined && $('#selectedrolelabel').attr('value') !== undefined) {
+                        var selectedrolelabel = $('#selectedrolelabel').attr('value');
+                        labeldetails = ' (' + selectedrolelabel + ') ';
+                    } else {					
+						labeldetails = ' (' + details + ') ';
+					}
+                }
+                 if ($('#selectedrolename') !== undefined && $('#selectedrolename').attr('value') !== undefined) {
+                    inputName = $('#selectedrolename').attr('value');
+
                 }
                 return $('<div class="teacher-item-block"></div>')
                     .html('<div class="teacher-item-selected">' + label + labeldetails + '</div>')

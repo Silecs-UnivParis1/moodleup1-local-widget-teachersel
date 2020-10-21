@@ -24,6 +24,8 @@ echo $OUTPUT->heading('Démo du sélecteur d\'utilisateurs');
 		<option value="editingteacher">Enseignant</option>
 		<option value="teacher">Enseignant non éditeur</option>
 	</select>
+	<input type='hidden' id="selectedrolelabel"/>
+    <input type='hidden' id="selectedrolename"/>
 </div>
 <br/>
 <div id="user-select">
@@ -48,8 +50,13 @@ jQuery(document).ready(function () {
     $('#roleteacher').on('change', function() {
         var sel = $(this).val();
         var sellabel = $('#roleteacher > option:selected').text();
-        $('#user-select').data('autocompleteUser').settings.fieldName = 'user[' + sel + ']';
-        $('#user-select').data('autocompleteUser').settings.labelDetails = sellabel;
+        
+        $('#selectedrolelabel').attr('value', sellabel);
+        $('#selectedrolename').attr('value', 'user[' + sel + ']');
+        if ($('#user-select').data('autocompleteUser') !== undefined) {
+			$('#user-select').data('autocompleteUser').settings.fieldName = 'user[' + sel + ']';
+			$('#user-select').data('autocompleteUser').settings.labelDetails = sellabel;
+		}
     });
     $('#roleteacher').change();
 });
