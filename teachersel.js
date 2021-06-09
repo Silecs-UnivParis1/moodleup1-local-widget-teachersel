@@ -219,7 +219,7 @@
 						labeldetails = ' (' + details + ') ';
 					}
                 }
-                 if ($('#selectedrolename') !== undefined && $('#selectedrolename').attr('value') !== undefined) {
+                 if (isPreSel != 1 && $('#selectedrolename') !== undefined && $('#selectedrolename').attr('value') !== undefined) {
                     inputName = $('#selectedrolename').attr('value');
 
                 }
