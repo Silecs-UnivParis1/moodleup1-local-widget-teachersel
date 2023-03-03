@@ -14,7 +14,7 @@
     }).appendTo("head");
 
     // load the custom CSS
-    var cssUrl = $('script[src$="teachersel.js"]').attr('src').replace('/teachersel.js', '/teachersel.css');
+    var cssUrl = $('script[src*="teachersel.js"]').attr('src').replace('/teachersel.js', '/teachersel.css');
     $('head').append($('<link rel="stylesheet" type="text/css" href=' + cssUrl + '>'));
 
     var defaultSettings = {
